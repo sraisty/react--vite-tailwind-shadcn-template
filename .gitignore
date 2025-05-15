@@ -1,0 +1,32 @@
+node_modules/
+dist/
+dist-ssr
+.next
+
+# local environment config
+*.local
+.envrc
+.env
+.vscode/*
+!.vscode/extensions.json
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# test coverage
+coverage/
+
+# Editor directories and files
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
