@@ -10,6 +10,7 @@ import {DemoDashboard} from './DemoDashboard'
 import {DemoComponents} from './DemoComponent'
 import {DemoSettings} from './DemoSettings'
 import {DemoCharts} from './DemoCharts'
+import {DemoMap} from './DemoMap'
 
 export function ShadcnDemo() {
   const [activeTab, setActiveTab] = useState('dashboard')
@@ -39,36 +40,34 @@ export function ShadcnDemo() {
 
       <main className="container mx-auto">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-4">
-            <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
-            <TabsTrigger value="components">Components</TabsTrigger>
-            <TabsTrigger value="charts">Charts</TabsTrigger>
-            <TabsTrigger value="charts">Map</TabsTrigger>
-            <TabsTrigger value="settings">Settings</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-5">
+            <TabsTrigger value="demodashboard">Dashboard</TabsTrigger>
+            <TabsTrigger value="democomponents">Components</TabsTrigger>
+            <TabsTrigger value="democharts">Charts</TabsTrigger>
+            <TabsTrigger value="demomap">Map</TabsTrigger>
+            <TabsTrigger value="demosettings">Settings</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="dashboard" className="mt-6 space-y-4">
+          <TabsContent value="demodashboard" className="mt-6 space-y-4">
             <DemoDashboard />
           </TabsContent>
-
-          <TabsContent value="components" className="mt-6 space-y-4">
+          <TabsContent value="democomponents" className="mt-6 space-y-4">
             <DemoComponents />
           </TabsContent>
-
-          <TabsContent value="charts" className="mt-6">
+          <TabsContent value="democharts" className="mt-6">
             <DemoCharts />
           </TabsContent>
-          <TabsContent value="map" className="mt-6">
+          <TabsContent value="demomap" className="mt-6">
             <DemoMap />
           </TabsContent>
-          <TabsContent value="settings" className="mt-6">
+          <TabsContent value="demosettings" className="mt-6">
             <DemoSettings />
           </TabsContent>
         </Tabs>
       </main>
 
       <footer className="container mx-auto mt-8 text-center text-sm text-muted-foreground">
-        <p>Created with React, Vite, Tailwind CSS, and shadcn/ui</p>
+        <p>Created with React, Vite, Tailwind CSS, ReCharts, Tailwind, and shadcn/ui</p>
       </footer>
     </div>
   )

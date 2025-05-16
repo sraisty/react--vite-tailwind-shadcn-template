@@ -14,8 +14,6 @@ import {
   PieChart,
   Pie,
   Cell,
-  Label,
-  LabelList,
   BarChart,
   Tooltip,
   Legend,
@@ -239,6 +237,5 @@ const scatterData = [
   ...lineChartData.map(({uv, pv, amt}) => ({x: uv, y: pv, z: amt})),
   ...radarChartData.map(({A, B, fullMark}) => ({x: A * 2, y: B * 4, z: fullMark})),
 ]
-console.log(scatterData)
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8A2BE2']
