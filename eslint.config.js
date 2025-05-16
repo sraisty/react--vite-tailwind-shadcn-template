@@ -1,17 +1,20 @@
 import js from '@eslint/js'
+import eslintReact from '@eslint-react/eslint-plugin'
 import globals from 'globals'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
 import tsparser from '@typescript-eslint/parser'
-// import prettierConfig from './prettier.config.mjs'
-// import * as eslintPluginPrettier from 'eslint-plugin-prettier'
 import eslintConfigPrettier from 'eslint-config-prettier'
 
 export default tseslint.config(
   {ignores: ['dist', 'node_modules']},
   {
-    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    extends: [
+      js.configs.recommended,
+      ...tseslint.configs.recommendedTypeChecked,
+      eslintReact.configs['recommended-type-checked'],
+    ],
     files: ['*.{ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2020,
@@ -19,12 +22,9 @@ export default tseslint.config(
       parser: tsparser, // ✅ Use TypeScript parser
       parserOptions: {
         // ✅ Point to TypeScript config
-        project: [
-          './tsconfig.app.json',
-          './tsconfig.node.json',
-          './tsconfig.json',
-        ],
-        tsconfigRootDir: process.cwd(),
+        project: ['./tsconfig.app.json', './tsconfig.node.json'],
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
       },
     },
     plugins: {
